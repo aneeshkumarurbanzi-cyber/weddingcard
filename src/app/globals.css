@@ -1,26 +1,246 @@
+/* =========================================================
+OPENING ENVELOPE
+========================================================= */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+/* =========================================================
+WEDDING COUNTDOWN
+========================================================= */
+
+.wedding-countdown {
+  position: relative;
+
+  min-height: 65vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #49352e;
+
+  color: #fffaf4;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.wedding-countdown::before {
+  content: "";
+
+  position: absolute;
+  inset: 25px;
+
+  border: 1px solid rgba(255, 250, 244, .16);
+
+  pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.wedding-countdown::after {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 50%;
+
+  background: rgba(190, 137, 115, .08);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.wedding-countdown__inner {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(900px, 90%);
+
+  text-align: center;
+}
+
+.wedding-countdown__eyebrow {
+  margin: 0 0 18px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 5px;
+
+  color: #d7b8a8;
+}
+
+.wedding-countdown__title {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(55px, 7vw, 90px);
+
+  font-weight: 400;
+
+  line-height: .8;
+
+  color: #fffaf4;
+}
+
+.wedding-countdown__title span {
+  display: block;
+
+  margin-top: 12px;
+
+  font-style: italic;
+
+  color: #d8a995;
+}
+
+.wedding-countdown__line {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  margin: 35px 0 45px;
+}
+
+.wedding-countdown__line span {
+  width: 70px;
+  height: 1px;
+
+  background: rgba(255, 250, 244, .22);
+}
+
+.wedding-countdown__line b {
+  font-size: 12px;
+
+  font-weight: 400;
+
+  color: #d8a995;
+}
+
+.wedding-countdown__timer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(18px, 4vw, 55px);
+}
+
+.wedding-countdown__item {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.wedding-countdown__item strong {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(45px, 6vw, 75px);
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  color: #fffaf4;
+}
+
+.wedding-countdown__item span {
+  margin-top: 9px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 7px;
+
+  letter-spacing: 3px;
+
+  color: #c9aaa0;
+}
+
+.wedding-countdown__timer > i {
+  margin-top: -18px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 35px;
+
+  font-style: normal;
+
+  color: #a87868;
+}
+
+.wedding-countdown__date {
+  margin: 45px 0 0;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 5px;
+
+  color: #b99688;
+}
+
+/* =========================================================
+COUNTDOWN MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .wedding-countdown {
+    min-height: 70vh;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .wedding-countdown::before {
+    inset: 14px;
+  }
+
+  .wedding-countdown__eyebrow {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  .wedding-countdown__title {
+    font-size: 58px;
+  }
+
+  .wedding-countdown__line {
+    margin: 30px 0 38px;
+  }
+
+  .wedding-countdown__line span {
+    width: 40px;
+  }
+
+  .wedding-countdown__timer {
+    gap: 10px;
+  }
+
+  .wedding-countdown__item strong {
+    font-size: 38px;
+  }
+
+  .wedding-countdown__item span {
+    font-size: 5px;
+    letter-spacing: 2px;
+  }
+
+  .wedding-countdown__timer > i {
+    font-size: 22px;
+    margin-top: -14px;
+  }
+
+  .wedding-countdown__date {
+    margin-top: 35px;
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
 }
